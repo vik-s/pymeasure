@@ -23,3 +23,4 @@
 #
 
 from .rohdeSMB100A import RohdeSMB100A
+from .rohdeFSQ import RohdeFSQ
