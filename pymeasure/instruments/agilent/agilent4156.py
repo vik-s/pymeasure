@@ -236,7 +236,10 @@ class Agilent4156(Instrument):
         else:
             self.write(":PAGE:MEAS:SAMP:PER {}".format(period))
             self.write(":PAGE:MEAS:SAMP:POIN {}".format(points))
-            self.write(":PAGE:SCON:MEAS:SING; *OPC?")
+            if period == 'INF':
+                self.write(":PAGE:SCON:MEAS:SING")
+            else:
+                self.write(":PAGE:SCON:MEAS:SING; *OPC?")
 
     def disable_all(self):
         """ Disables all channels in the instrument.
